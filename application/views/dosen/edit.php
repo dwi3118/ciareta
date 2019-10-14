@@ -18,7 +18,9 @@
 
 	<tr>
 		<td>JK</td>
-		<td><input type="text" value="<?php echo $edit['jk'] ?>" name="jk" id="jk"></td>
+		<td><input type="radio" name="jenis" value="pria" <?php if ($jenis=="pria") {echo "checked";
+		}?>>pria
+		
 	</tr>
 
 	<tr>
