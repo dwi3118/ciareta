@@ -23,20 +23,13 @@ class Dosen extends CI_Controller{
 
 	public function save()
 	{
-		$NIK=$this->input->post('nik');
-		$kode=$this->input->post('kode_dosen');
-		$nama=$this->input->post('nama_dosen');
-		$jk=$this->input->post('jk');
-		$email=$this->input->post('email');
-		$status=$this->input->post('status');
-
 		$data=array(
-			'nik'=>$NIK,
-			'kode_dosen'=>$kode,
-			'nama_dosen'=>$nama,
-			'jk'=>$jk,
-			'email'=>$email,
-			'status'=>$status
+		'nik'=>$this->input->post('nik'),
+		'kode_dosen'=>$this->input->post('kode_dosen'),
+		'nama_dosen'=>$this->input->post('nama_dosen'),
+		'jk'=>$this->input->post('jk'),
+		'email'=>$this->input->post('email'),
+		'status'=>$this->input->post('status')
 		);
 
 		$this->M_dosen->save($data);
@@ -45,26 +38,26 @@ class Dosen extends CI_Controller{
 
 	public function edit()
 	{
-		$id=$this->uri->segment(3);
+		$nik=$this->uri->segment(3);
 		$data['judul']="edit_data";
-		$data['edit']=$this->M_dosen->getid($id)->row_array();
+		$data['edit']=$this->M_dosen->getnik($nik)->row_array();
 		$this->load->view('dosen/edit', $data, FALSE);
 	}
 
 	public function update()
 	{
-		$kode=$this->input->post('nik');
-		$kode=$this->input->post('kode_dosen');
-		$kode=$this->input->post('nama_dosen');
-		$kode=$this->input->post('jk');
-		$kode=$this->input->post('email');
-		$kode=$this->input->post('status');
-
+		$nik=$this->input->post('nik');
 		$data=array(
-			'nama_dosen'=>$nama
+		'nik'=>$this->input->post('nik'),
+		'kode_dosen'=>$this->input->post('kode_dosen'),
+		'nama_dosen'=>$this->input->post('nama_dosen'),
+		'jk'=>$this->input->post('jk'),
+		'email'=>$this->input->post('email'),
+		'status'=>$this->input->post('status')
 		);
+		
 
-		$this->M_dosen->update($data,$kode);
+		$this->M_dosen->update($data,$nik);
 		redirect('dosen','refresh');
 	}
 	
@@ -72,6 +65,7 @@ class Dosen extends CI_Controller{
 	{
 		$id=$this->uri->segment(3);
 		$this->db->where('kode_dosen', $id);
+		$this->db->delete('dosen');
 		redirect('dosen','refresh');
 	}
 }

@@ -1,7 +1,6 @@
 <?php echo form_open('dosen/save') ?>
 <?php echo $judul ?>
-<tate
-ble width="325" border="1">
+<table width="325" border="1">
 	<tr>
 		<td>NIK</td>
 		<td><input type="text" name="nik" id="nik"></td>
@@ -19,11 +18,12 @@ ble width="325" border="1">
 
 	<tr>
 		<td>JK</td>
-		<td><input type="text" name="jk" id="jk"></td>
+		<td><input type="radio" name="jk" value="L">Laki-laki
+			<input type="radio" name="jk" value="P">Perempuan</td>
 	</tr>
 
 	<tr>
-		<td>Eamil</td>
+		<td>Email</td>
 		<td><input type="text" name="email" id="email"></td>
 	</tr>
 

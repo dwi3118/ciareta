@@ -1,6 +1,6 @@
 <?php echo form_open('dosen/update') ?>
 <?php echo $judul ?>
-<table widht="325" dorder="1">
+<table widht="325" border="1">
 	<tr>
 		<td>NIK</td>
 		<td><input type="text" value="<?php echo $edit['nik'] ?>" name="nik" id="nik"></td>
@@ -18,9 +18,8 @@
 
 	<tr>
 		<td>JK</td>
-		<td><input type="radio" name="jenis" value="pria" <?php if ($jenis=="pria") {echo "checked";
-		}?>>pria
-		
+		<td><input type="radio" name="jk" value="L">pria
+		<input type="radio" name="jk" value="P">perempuan</td>
 	</tr>
 
 	<tr>
