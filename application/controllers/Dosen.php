@@ -10,7 +10,7 @@ class Dosen extends CI_Controller{
 
 	public function index()
 	{
-		$data['judl']="Tampil Data Dosen";
+		$data['judul']="Tampil Data Dosen";
 		$data['tampil']=$this->M_dosen->tampil()->result();
 		$this->load->view('dosen/tampil', $data, FALSE);
 	}
@@ -64,7 +64,7 @@ class Dosen extends CI_Controller{
 	public function delete()
 	{
 		$id=$this->uri->segment(3);
-		$this->db->where('kode_dosen', $id);
+		$this->db->where('nik', $id);
 		$this->db->delete('dosen');
 		redirect('dosen','refresh');
 	}
